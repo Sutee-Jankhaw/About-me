@@ -5,38 +5,15 @@
       color="primary"
       dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <h2>Introduce My Self</h2>
+      <v-spacer/>
+      <v-tabs>
+        <v-tab @click="scrollTo('home')">Home</v-tab>
+        <v-tab @click="scrollTo('about')">About Me</v-tab>
+        <v-tab @click="scrollTo('education')">Education</v-tab>
+        <v-tab @click="scrollTo('habit')">Habit</v-tab>
+      </v-tabs>
     </v-app-bar>
-
     <v-main>
       <router-view/>
     </v-main>
@@ -48,8 +25,16 @@
 export default {
   name: 'App',
 
-  data: () => ({
-    //
-  }),
+  methods: {
+    scrollTo(id) {
+      const element = document.getElementById(id)
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth'
+        })
+      }
+    }
+  }
 };
 </script>
