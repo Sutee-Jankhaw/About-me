@@ -10,9 +10,11 @@
           class="text-center"
           cols="5"
         >
+        <div>
           <h1 class="text-h4 font-weight-thin mb-4">
             สวัสดี เรามาทำความรู้จักกันเถอะ
           </h1>
+        </div>
         </v-col>
       </v-row>
     </section>
@@ -102,7 +104,7 @@
               elevation="4"
             >
               <v-card-title>
-                จุดอ่อน
+                ข้อเสีย
               </v-card-title>
 
               <v-card-text>
@@ -154,13 +156,13 @@
         <v-container fluid>
         <v-row justify="center" align="center">
           <v-col
-            v-for="card in cards"
+            v-for="card in habitCards"
             :key="card.title"
-            cols="4"
-            md="4"
+            cols="5"
+            md="3"
             class="text-center"
           >
-            <v-card width="300">
+            <v-card width="400">
               <v-img
                 :src="card.src"
                 class="white--text align-end"
@@ -183,6 +185,86 @@
         </v-container>
       </div>
     </section>
+    <section id="music" class="music-section">
+      <div>
+        <h1 class="text-center mb-6">
+          มีแนวเพลงที่ชอบฟังมั้ย?
+        </h1>
+        <v-container fluid>
+          <v-row justify="center" align="center">
+            <v-col
+              v-for="card in musicCard"
+              :key="card.title"
+              cols="5"
+              md="4"
+              class="text-center"
+            >
+            <v-card
+              color="pink darken-2"
+              outlined
+            >
+              <h1>
+                {{ card.title }}
+              </h1>
+            </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </div>
+      <div class="margin-section">
+        <h1 class="text-center mb-40">
+          แล้วมีวงดนตรีหรือศิลปินที่ชอบมั้ย?
+        </h1>
+        <v-container fluid>
+          <v-row justify="center" align="center">
+            <v-col
+              v-for="card in artistCard"
+              :key="card.title"
+              cols="5"
+              md="4"
+              class="text-center"
+            >
+              <v-card width="400">
+                <v-img
+                  :src="card.img"
+                  class="white--text align-end"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="400px"
+                >
+                  <v-card-title>
+                    {{ card.title }}
+                  </v-card-title>
+                </v-img>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn icon>
+                    <v-icon>mdi-heart</v-icon>
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </div>
+    </section>
+    <section id="footer" class="footer-section">
+      <v-row
+        align="center"
+        justify="center"
+        class="fill-height"
+      >
+        <v-col
+          class="text-center"
+          cols="5"
+        >
+        <div>
+          <h1 class="text-h4 font-weight-thin mb-4">
+            หวังว่าข้อมูลทั้งหมดจะทำให้รู้จักผมมากขึ้นนะครับ
+          </h1>
+        </div>
+        </v-col>
+      </v-row>
+    </section>
   </div>
 </template>
 
@@ -190,11 +272,26 @@
   export default {
     name: 'Home',
     data: () => ({
-      cards: [
+      habitCards: [
+        { title: 'เล่นเกม', src:'https://boyseducation.us.edu/hubfs/Losing_Control-Boys_and_Video_Games.jpg' },
         { title: 'วาดรูป', src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ue-8XvICu_0bsNbIC1GFXXgykqz8n-7AXHGrUWe3181iPB6tgmdQ3VI&s=10' },
         { title: 'แก้โจทย์ Logic', src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxUD-_UTuEmC2ib9POh2ZuAVjtTAIPDEV6fesdt1X-_k-UNT642E81RXlC&s=10'},
         { title: 'ถ่ายรูป', src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbW1ZGQdic-O-fTeFFl-83cIi3eTx7FbJqAi6agYiPNd77Gg8w54mPx1G_&s=10'},
       ],
+      musicCard: [
+        { title: 'Lofi'},
+        { title: 'Pop'},
+        { title: 'R&B'},
+        { title: 'Country'},
+        { title: 'EDM'}
+      ],
+      artistCard: [
+        { title: 'Yorushika', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsAXKIZGUbKEvrBX7vZCF4Yu937RplGSOn_tdIxsmPQQ&s=10'},
+        { title: 'Orangestar', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjQ-YeLMVhU8kbmHsBGw8Lq-7Jq0EW5zMZO3u6CBm0AT-HavvK-AsrJzm5&s=10'},
+        { title: 'Cocktail', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6IDnAjXQvv-f_IkdyZnZeTo7h0JAX291YBlho85iGFOMholuI0d3SjSA&s=10'},
+        { title: 'Dr.Fuu', img: 'https://cdn-images.dzcdn.net/images/cover/b2e80bc4693b91c082cb1839aa85b178/1900x1900-000000-80-0-0.jpg'},
+        { title: 'Porter Robinson', img: 'https://upload.wikimedia.org/wikipedia/en/e/eb/Porter_Robinson_-_Worlds.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original'},
+      ]
     }),
   }
 </script>
@@ -212,6 +309,7 @@ section {
   background-size: cover;
   background-position: center;
   color: white;
+  padding-top: 25%;
   min-height: 100vh;
 }
 .about-section {
@@ -232,6 +330,22 @@ section {
   background-size: cover;
   background-position: center;
   color: white;
+  min-height: 100vh;
+}
+.music-section {
+  background-image: url('https://img.magnific.com/free-vector/dark-gradient-background-with-copy-space_53876-99548.jpg?semt=ais_hybrid&w=740&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  min-height: 100vh;
+}
+.footer-section {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9PXtejZflIP_n-amdMUJBn5xvPaLlEl3t1VsHzE4I7b7pfTiWwlUBjoIw&s=10');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-justify: center;
+  padding-top: 25%;
   min-height: 100vh;
 }
 .margin-section {
