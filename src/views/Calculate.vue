@@ -11,7 +11,6 @@
         <v-text-field
           v-model="score"
           label="Score"
-          type="number"
         />
 
         <v-btn
@@ -24,7 +23,17 @@
 
         <div class="text-center mt-6">
           <h3>Your Grade is:</h3>
-          <h1>{{ grade }}</h1>
+          <h1
+          :class="{
+            'grade-a': grade === 'A',
+            'grade-b': grade === 'B',
+            'grade-c': grade === 'C',
+            'grade-d': grade === 'D',
+            'grade-f': grade === 'F'
+          }"
+          >
+            {{ grade }}
+          </h1>
         </div>
       </v-card-text>
     </v-card>
@@ -83,6 +92,25 @@ export default {
 }
 
 .calculate-card {
-  width: 100%;
+  width: 80%;
+}
+.grade-a {
+  color: rgba(50, 205, 50, 0.89);
+}
+
+.grade-b {
+  color: rgb(161, 218, 49);
+}
+
+.grade-c {
+  color: rgba(255, 255, 0, 0.788);
+}
+
+.grade-d {
+  color: rgba(255, 166, 0, 0.829);
+}
+
+.grade-f {
+  color: rgba(255, 0, 0, 0.781);
 }
 </style>
