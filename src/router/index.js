@@ -1,14 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '',
+    name: 'navbar',
+    component: () => import('../views/Navbar.vue'),
+    children: [
+      {
+        path: '/',
+        name: 'home',
+        component: () => import('../views/HomeView.vue')
+      }
+    ]
   },
   {
     path: '/calculate',

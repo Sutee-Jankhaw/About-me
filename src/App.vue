@@ -1,20 +1,5 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <h4>Introduce My Self</h4>
-      <v-spacer/>
-      <v-tabs>
-        <v-tab @click="scrollTo('home')">Home</v-tab>
-        <v-tab @click="scrollTo('about')">About Me</v-tab>
-        <v-tab @click="scrollTo('education')">Education</v-tab>
-        <v-tab @click="scrollTo('habit')">Habit</v-tab>
-        <v-tab @click="scrollTo('music')">Music</v-tab>
-      </v-tabs>
-    </v-app-bar>
     <v-main>
       <router-view/>
     </v-main>
